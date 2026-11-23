@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- BYTT UT: "Kunstnerens Navn" overalt på siden med mammas ekte navn -->
-  <title>Kunstnerens Navn – Abstrakt kunst</title>
-  <meta name="description" content="Non-figurativ og abstrakt maleri av Kunstnerens Navn, utdannet ved kunstakademiet i Firenze.">
+  <title>Kunstnerens Navn – Maleri</title>
+  <meta name="description" content="Non-figurativt og abstrakt maleri av Kunstnerens Navn, utdannet ved kunstakademiet i Firenze.">
 
   <!-- Skrifttyper fra Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -20,146 +20,200 @@
   <header class="toppmeny">
     <a href="#" class="logo">Kunstnerens Navn</a>
     <nav>
-      <a href="#verk">Verk</a>
-      <a href="#om">Om</a>
+      <a href="#utstillingen">Utstillingen</a>
+      <a href="#kunstneren">Kunstneren</a>
       <a href="#uttalelse">Uttalelse</a>
-      <a href="#kontakt">Kontakt</a>
+      <a href="#henvendelser">Henvendelser</a>
     </nav>
   </header>
 
-  <!-- ===== INTRO ===== -->
-  <section class="hero">
-    <!-- Abstrakt bakgrunn laget i CSS. Kan byttes ut med et av mammas malerier. -->
-    <div class="hero-maleri" aria-hidden="true"></div>
-    <div class="hero-tekst">
-      <h1>Kunstnerens Navn</h1>
-      <p class="undertittel">Non-figurativt maleri</p>
-      <p class="sitat-intro">«Følelsen former bildet – ikke motivet.»</p>
-      <a href="#verk" class="knapp">Se verkene</a>
-    </div>
-  </section>
+  <main>
 
-  <!-- ===== GALLERI ===== -->
-  <section id="verk" class="seksjon">
-    <h2>Utvalgte verk</h2>
-    <p class="ingress">
-      Et utvalg malerier der farge, form og bevegelse får tale fritt.
-    </p>
+    <!-- ===== INNGANGEN – det første man ser, som døren inn til galleriet ===== -->
+    <section class="inngang">
+      <p class="overtittel vis-ved-rulling">Maleri</p>
+      <h1 class="vis-ved-rulling">
+        <span>Kunstnerens</span>
+        <span>Navn</span>
+      </h1>
+      <div class="strek vis-ved-rulling"></div>
+      <p class="inngang-undertekst vis-ved-rulling">Non-figurativ abstraksjon</p>
+      <a href="#utstillingen" class="ga-inn">
+        Gå inn i galleriet
+        <span class="pil" aria-hidden="true"></span>
+      </a>
+    </section>
 
-    <!--
-      Hvert verk er en <figure>. Når du har bilder av maleriene:
-      bytt ut <div class="verk-bilde ..."></div> med
-      <img src="bilder/filnavn.jpg" alt="Kort beskrivelse av maleriet">
-    -->
-    <div class="galleri">
-      <figure class="verk">
-        <div class="verk-bilde abstrakt-1"></div>
-        <figcaption>
-          <span class="verk-tittel">Uten tittel I</span>
-          <span class="verk-info">Olje på lerret · 120 × 100 cm · 2024</span>
-        </figcaption>
-      </figure>
-      <figure class="verk">
-        <div class="verk-bilde abstrakt-2"></div>
-        <figcaption>
-          <span class="verk-tittel">Uten tittel II</span>
-          <span class="verk-info">Akryl på lerret · 90 × 90 cm · 2024</span>
-        </figcaption>
-      </figure>
-      <figure class="verk">
-        <div class="verk-bilde abstrakt-3"></div>
-        <figcaption>
-          <span class="verk-tittel">Uten tittel III</span>
-          <span class="verk-info">Olje på lerret · 150 × 110 cm · 2023</span>
-        </figcaption>
-      </figure>
-      <figure class="verk">
-        <div class="verk-bilde abstrakt-4"></div>
-        <figcaption>
-          <span class="verk-tittel">Uten tittel IV</span>
-          <span class="verk-info">Blandteknikk · 80 × 100 cm · 2023</span>
-        </figcaption>
-      </figure>
-      <figure class="verk">
-        <div class="verk-bilde abstrakt-5"></div>
-        <figcaption>
-          <span class="verk-tittel">Uten tittel V</span>
-          <span class="verk-info">Olje på lerret · 100 × 100 cm · 2022</span>
-        </figcaption>
-      </figure>
-      <figure class="verk">
-        <div class="verk-bilde abstrakt-6"></div>
-        <figcaption>
-          <span class="verk-tittel">Uten tittel VI</span>
-          <span class="verk-info">Akryl på lerret · 140 × 120 cm · 2022</span>
-        </figcaption>
-      </figure>
-    </div>
-  </section>
+    <!-- ===== UTSTILLINGEN ===== -->
+    <section id="utstillingen" class="utstilling">
 
-  <!-- ===== OM KUNSTNEREN ===== -->
-  <section id="om" class="seksjon om">
-    <div class="om-portrett" aria-hidden="true">
-      <!-- BYTT UT: legg inn et portrett, f.eks. <img src="bilder/portrett.jpg" alt="Portrett av Kunstnerens Navn"> -->
-    </div>
-    <div class="om-tekst">
-      <h2>Om kunstneren</h2>
-      <p>
-        Kunstnerens Navn er en anerkjent norsk kunstner med dyp akademisk
-        forankring i kunstfaget. Hun har doktorgrad fra kunstakademiet i
-        Firenze, og begynte tidlig å arbeide som kunstner.
+      <header class="rom-intro vis-ved-rulling">
+        <p class="overtittel">Utstillingen</p>
+        <h2>Utvalgte verk</h2>
+        <p class="ingress">
+          Malerier der farge, form og bevegelse får tale fritt –
+          uten motiv, uten fortelling, bare følelse.
+        </p>
+      </header>
+
+      <!--
+        HVERT VERK ER EN "VEGG" I GALLERIET.
+        Slik bytter du ut et plassholder-maleri med et ekte bilde:
+          1. Legg bildet i mappen "bilder"
+          2. Bytt ut <div class="lerret abstrakt-1"></div> med
+             <img class="lerret" src="bilder/filnavn.jpg" alt="Kort beskrivelse av maleriet">
+          3. Juster --forhold (bredde / høyde) slik at det passer maleriets mål
+        "vegg--speilet" legger skiltet på motsatt side, slik at veggene veksler.
+      -->
+
+      <article class="vegg">
+        <div class="verk vis-ved-rulling" style="--forhold: 100 / 120;">
+          <div class="lerret abstrakt-1"></div>
+        </div>
+        <div class="vegglapp vis-ved-rulling">
+          <span class="nummer">01</span>
+          <p class="lapp-kunstner">Kunstnerens Navn</p>
+          <p class="lapp-tittel"><em>Uten tittel I</em>, 2024</p>
+          <p class="lapp-detaljer">Olje på lerret<br>120 × 100 cm</p>
+        </div>
+      </article>
+
+      <article class="vegg vegg--speilet">
+        <div class="verk vis-ved-rulling" style="--forhold: 1 / 1;">
+          <div class="lerret abstrakt-2"></div>
+        </div>
+        <div class="vegglapp vis-ved-rulling">
+          <span class="nummer">02</span>
+          <p class="lapp-kunstner">Kunstnerens Navn</p>
+          <p class="lapp-tittel"><em>Uten tittel II</em>, 2024</p>
+          <p class="lapp-detaljer">Akryl på lerret<br>90 × 90 cm</p>
+        </div>
+      </article>
+
+      <article class="vegg">
+        <div class="verk vis-ved-rulling" style="--forhold: 150 / 110;">
+          <div class="lerret abstrakt-3"></div>
+        </div>
+        <div class="vegglapp vis-ved-rulling">
+          <span class="nummer">03</span>
+          <p class="lapp-kunstner">Kunstnerens Navn</p>
+          <p class="lapp-tittel"><em>Uten tittel III</em>, 2023</p>
+          <p class="lapp-detaljer">Olje på lerret<br>110 × 150 cm</p>
+        </div>
+      </article>
+
+      <article class="vegg vegg--speilet">
+        <div class="verk vis-ved-rulling" style="--forhold: 80 / 100;">
+          <div class="lerret abstrakt-4"></div>
+        </div>
+        <div class="vegglapp vis-ved-rulling">
+          <span class="nummer">04</span>
+          <p class="lapp-kunstner">Kunstnerens Navn</p>
+          <p class="lapp-tittel"><em>Uten tittel IV</em>, 2023</p>
+          <p class="lapp-detaljer">Blandteknikk på lerret<br>100 × 80 cm</p>
+        </div>
+      </article>
+
+      <article class="vegg">
+        <div class="verk vis-ved-rulling" style="--forhold: 1 / 1;">
+          <div class="lerret abstrakt-5"></div>
+        </div>
+        <div class="vegglapp vis-ved-rulling">
+          <span class="nummer">05</span>
+          <p class="lapp-kunstner">Kunstnerens Navn</p>
+          <p class="lapp-tittel"><em>Uten tittel V</em>, 2022</p>
+          <p class="lapp-detaljer">Olje på lerret<br>100 × 100 cm</p>
+        </div>
+      </article>
+
+      <article class="vegg vegg--speilet">
+        <div class="verk vis-ved-rulling" style="--forhold: 120 / 140;">
+          <div class="lerret abstrakt-6"></div>
+        </div>
+        <div class="vegglapp vis-ved-rulling">
+          <span class="nummer">06</span>
+          <p class="lapp-kunstner">Kunstnerens Navn</p>
+          <p class="lapp-tittel"><em>Uten tittel VI</em>, 2022</p>
+          <p class="lapp-detaljer">Akryl på lerret<br>140 × 120 cm</p>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ===== KUNSTNEREN ===== -->
+    <section id="kunstneren" class="kunstneren">
+      <div class="portrett vis-ved-rulling">
+        <!-- BYTT UT: <img src="bilder/portrett.jpg" alt="Portrett av Kunstnerens Navn"> -->
+      </div>
+      <div class="kunstneren-tekst vis-ved-rulling">
+        <p class="overtittel">Kunstneren</p>
+        <h2>Et liv i farge og følelse</h2>
+        <p>
+          Kunstnerens Navn er en anerkjent norsk kunstner med dyp akademisk
+          forankring i kunstfaget. Hun har doktorgrad fra kunstakademiet i
+          Firenze, og begynte tidlig å arbeide som kunstner.
+        </p>
+        <p>
+          Hennes malerier er non-figurative og abstrakte. I stedet for å
+          gjengi personer, landskap eller kjente former, lar hun følelsene
+          styre penselen. Bildene forteller ikke betrakteren hva den skal se –
+          de inviterer den til å kjenne.
+        </p>
+        <p>
+          Denne tilnærmingen går som en rød tråd gjennom hele hennes kunstnerskap.
+        </p>
+
+        <!-- BYTT UT / FYLL INN: ekte årstall, navn på utdanning og utstillinger -->
+        <dl class="cv">
+          <div>
+            <dt>Utdanning</dt>
+            <dd>Doktorgrad, kunstakademiet i Firenze, Italia</dd>
+          </div>
+          <div>
+            <dt>Utstillinger</dt>
+            <dd>Utvalgte separat- og kollektivutstillinger</dd>
+          </div>
+          <div>
+            <dt>Representert i</dt>
+            <dd>Samlinger, museer og institusjoner</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===== KUNSTNERISK UTTALELSE – et mørkt rom med ett lys ===== -->
+    <section id="uttalelse" class="uttalelse">
+      <p class="overtittel vis-ved-rulling">Kunstnerisk uttalelse</p>
+      <!-- BYTT UT: helst med mammas egne ord -->
+      <blockquote class="vis-ved-rulling">
+        <p>
+          Jeg maler ikke det jeg ser, men det jeg kjenner. Foran lerretet
+          slipper jeg taket i det gjenkjennelige og lar fargene, strøkene
+          og rytmen finne sin egen vei.
+        </p>
+      </blockquote>
+      <div class="strek vis-ved-rulling"></div>
+    </section>
+
+    <!-- ===== HENVENDELSER ===== -->
+    <section id="henvendelser" class="henvendelser">
+      <p class="overtittel vis-ved-rulling">Henvendelser</p>
+      <h2 class="vis-ved-rulling">Salg, utstillinger og samarbeid</h2>
+      <p class="vis-ved-rulling">
+        Verk kan sees etter avtale. For forespørsler om tilgjengelige verk,
+        utlån eller oppdrag, ta kontakt.
       </p>
-      <p>
-        Hennes malerier er non-figurative og abstrakte. I stedet for å
-        gjengi personer, landskap eller kjente former, lar hun følelsene
-        styre penselen. Resultatet er bilder som ikke forteller betrakteren
-        hva de skal se, men som inviterer til å kjenne.
-      </p>
-      <p>
-        Denne tilnærmingen går som en rød tråd gjennom hele hennes kunstnerskap.
-      </p>
+      <!-- BYTT UT: ekte e-postadresse -->
+      <a href="mailto:post@eksempel.no" class="lenke-strek vis-ved-rulling">post@eksempel.no</a>
+    </section>
 
-      <!-- BYTT UT / FYLL INN: ekte årstall og navn på utdanning og utstillinger -->
-      <dl class="cv">
-        <dt>Utdanning</dt>
-        <dd>Doktorgrad, kunstakademiet i Firenze, Italia</dd>
-        <dt>Utstillinger</dt>
-        <dd>Legg inn utvalgte separat- og kollektivutstillinger her</dd>
-        <dt>Representert i</dt>
-        <dd>Legg inn samlinger, museer eller institusjoner her</dd>
-      </dl>
-    </div>
-  </section>
+  </main>
 
-  <!-- ===== KUNSTNERISK UTTALELSE ===== -->
-  <section id="uttalelse" class="uttalelse">
-    <h2>Kunstnerisk uttalelse</h2>
-    <!-- BYTT UT: helst med mammas egne ord -->
-    <blockquote>
-      <p>
-        Jeg maler ikke det jeg ser, men det jeg kjenner. Når jeg står foran
-        lerretet, slipper jeg taket i det gjenkjennelige og lar fargene,
-        strøkene og rytmen finne sin egen vei. Hvert bilde er et spor
-        av en følelse – og en åpen dør for den som ser på.
-      </p>
-    </blockquote>
-  </section>
-
-  <!-- ===== KONTAKT ===== -->
-  <section id="kontakt" class="seksjon kontakt">
-    <h2>Kontakt</h2>
-    <p>
-      For henvendelser om kjøp, utstillinger eller samarbeid,
-      ta gjerne kontakt.
-    </p>
-    <!-- BYTT UT: ekte e-postadresse -->
-    <a href="mailto:post@eksempel.no" class="knapp">post@eksempel.no</a>
-  </section>
-
-  <!-- ===== BUNNTEKST ===== -->
   <footer>
-    <p>© 2026 Kunstnerens Navn · Alle verk er beskyttet av opphavsrett</p>
+    <span>© 2026 Kunstnerens Navn</span>
+    <span>Alle verk er beskyttet av opphavsrett</span>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
