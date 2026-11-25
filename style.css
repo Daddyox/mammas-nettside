@@ -1004,3 +1004,51 @@ body:has(.hjem[open]) {
     display: none;
   }
 }
+
+/* =========================================
+   MÅL I PRØVEROMMET
+   ========================================= */
+/* Lengden i cm midt på målestreken – vises bare mens man måler */
+.hjem-malelapp {
+  display: none;
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 12px));
+  padding: 0.15rem 0.55rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  white-space: nowrap;
+  color: #fff;
+  background: rgba(43, 31, 23, 0.85);
+  pointer-events: none;
+}
+
+.hjem-scene.maler .hjem-malelapp {
+  display: block;
+}
+
+/* Målene til det valgte maleriet, rett under det */
+.hjem-verk-mal {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 8px);
+  transform: translateX(-50%);
+  padding: 0.1rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  white-space: nowrap;
+  color: #fff;
+  background: rgba(43, 31, 23, 0.8);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.hjem-verk.valgt .hjem-verk-mal,
+.hjem-verk:hover .hjem-verk-mal {
+  opacity: 1;
+}
+
+/* Mens man måler skal bare målestreken vises */
+.hjem-scene.maler .hjem-verk-mal {
+  opacity: 0;
+}

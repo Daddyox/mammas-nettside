@@ -14,6 +14,7 @@ const romBilde = scene.querySelector(".hjem-rom");
 const maleSvg = scene.querySelector(".hjem-malelinje");
 const maleStrek = maleSvg.querySelector("line");
 const handtak = scene.querySelectorAll(".hjem-handtak");
+const maleLapp = scene.querySelector(".hjem-malelapp");
 const filvelger = hjem.querySelector("#hjem-fil");
 const verkInfo = hjem.querySelector(".hjem-verkinfo");
 const tips = hjem.querySelector(".hjem-tips");
@@ -104,7 +105,11 @@ function lagVerkElement(h, nr) {
   el.className = "hjem-verk";
   el.tabIndex = 0;
   el.setAttribute("aria-label", kortNavn(h.i) + ". Dra det dit du vil, eller bruk piltastene.");
-  el.append(lagLerret(h.i, true));
+  const malLapp = document.createElement("span");
+  malLapp.className = "hjem-verk-mal";
+  malLapp.setAttribute("aria-hidden", "true");
+  malLapp.textContent = `${VERK[h.i].hoyde} × ${VERK[h.i].bredde} cm`;
+  el.append(lagLerret(h.i, true), malLapp);
   el.style.width = breddeAndel(h.i) * 100 + "%";
   el.style.aspectRatio = VERK[h.i].bredde / VERK[h.i].hoyde;
   el.style.left = h.x * 100 + "%";
@@ -297,6 +302,14 @@ function tegnMaleLinje() {
     h.style.left = ende.x * 100 + "%";
     h.style.top = ende.y * 100 + "%";
   });
+
+  // Lengden i cm midt på streken, regnet ut fra størrelsen rommet har nå
+  const dx = maleLinje.b.x - maleLinje.a.x;
+  const dy = (maleLinje.b.y - maleLinje.a.y) / romForhold;
+  const cm = Math.round(Math.hypot(dx, dy) * cmPerBredde);
+  maleLapp.textContent = cm + " cm";
+  maleLapp.style.left = ((maleLinje.a.x + maleLinje.b.x) / 2) * 100 + "%";
+  maleLapp.style.top = ((maleLinje.a.y + maleLinje.b.y) / 2) * 100 + "%";
 }
 
 handtak.forEach((h) => {
