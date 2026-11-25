@@ -139,12 +139,87 @@
         <p class="visning-nummer"></p>
         <p class="visning-tittel"></p>
         <p class="visning-detaljer"></p>
+        <button type="button" class="hjem-apne">Se maleriet i ditt hjem</button>
       </figcaption>
     </figure>
     <button type="button" class="visning-pil visning-neste" aria-label="Neste maleri">›</button>
   </dialog>
 
+  <!-- ===== SE I DITT HJEM – heng maleriet på et bilde av din egen vegg ===== -->
+  <dialog class="hjem" aria-labelledby="hjem-tittel">
+    <div class="hjem-ramme">
+      <header class="hjem-topp">
+        <h2 id="hjem-tittel">Se maleriet i ditt hjem</h2>
+        <button type="button" class="visning-lukk hjem-lukk" aria-label="Lukk">×</button>
+      </header>
+
+      <div class="hjem-start">
+        <p class="hjem-forklaring">
+          Ta et bilde av veggen der du ser for deg maleriet,
+          og heng det opp i riktig størrelse.
+        </p>
+        <div class="hjem-valg">
+          <button type="button" class="hjem-knapp hjem-knapp--fylt hjem-velg">Ta eller velg et bilde av veggen</button>
+          <button type="button" class="hjem-knapp hjem-eksempel">Prøv med et eksempelrom</button>
+          <input type="file" id="hjem-fil" accept="image/*" hidden>
+        </div>
+        <p class="hjem-personvern">Bildet ditt blir på din egen enhet. Det lastes ikke opp noe sted.</p>
+      </div>
+
+      <div class="hjem-arbeid" hidden>
+        <div class="hjem-scene">
+          <img class="hjem-rom" alt="Bildet av veggen">
+          <!-- Maleriene legges inn her av hjem.js -->
+          <svg class="hjem-malelinje" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <line vector-effect="non-scaling-stroke"></line>
+          </svg>
+          <div class="hjem-handtak" data-ende="a" aria-hidden="true"></div>
+          <div class="hjem-handtak" data-ende="b" aria-hidden="true"></div>
+        </div>
+
+        <div class="hjem-verktoy">
+          <div class="hjem-bytt">
+            <button type="button" class="visning-pil hjem-forrige" aria-label="Forrige maleri">‹</button>
+            <p class="hjem-verkinfo"></p>
+            <button type="button" class="visning-pil hjem-neste" aria-label="Neste maleri">›</button>
+          </div>
+          <p class="hjem-tips"></p>
+          <div class="hjem-handlinger">
+            <button type="button" class="hjem-knapp hjem-legg-til">Legg til et maleri</button>
+            <button type="button" class="hjem-knapp hjem-fjern" hidden>Ta ned valgt maleri</button>
+            <button type="button" class="hjem-knapp hjem-mal">Mål opp for riktig størrelse</button>
+            <button type="button" class="hjem-knapp hjem-nytt">Nytt bilde</button>
+          </div>
+          <!-- Velg hvilket maleri som skal henges opp, og se det før det havner på veggen -->
+          <div class="hjem-velger" hidden>
+            <div class="hjem-velger-valgt">
+              <div class="hjem-velger-bilde"></div>
+              <p class="hjem-velger-info"></p>
+              <div class="hjem-velger-knapper">
+                <button type="button" class="hjem-knapp hjem-knapp--fylt hjem-heng">Heng opp</button>
+                <button type="button" class="hjem-knapp hjem-avbryt">Avbryt</button>
+              </div>
+            </div>
+            <div class="hjem-velger-liste" role="listbox" aria-label="Alle maleriene"></div>
+          </div>
+
+          <div class="hjem-malepanel" hidden>
+            <p>
+              Dra de to prikkene til hver sin ende av noe du vet målet på,
+              for eksempel en sofa, en dør (ca. 80 cm) eller et A4-ark (21 cm).
+            </p>
+            <label>Lengden er
+              <input type="number" id="hjem-cm" min="1" max="2000" value="200" inputmode="decimal"> cm
+            </label>
+            <button type="button" class="hjem-knapp hjem-knapp--fylt hjem-bruk">Bruk målet</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
   <script src="verk.js"></script>
   <script src="script.js"></script>
+  <script src="hjem.js"></script>
 </body>
 </html>

@@ -1,0 +1,16 @@
+# =========================================
+#  FILER GIT SKAL IGNORERE
+#  Alt som står her blir aldri med i en commit,
+#  og havner derfor aldri på GitHub.
+# =========================================
+
+# Hemmeligheter – API-nøkler, passord osv.
+.env
+.env.*
+
+# Søppelfiler Windows lager av seg selv
+desktop.ini
+Thumbs.db
+
+# Søppelfiler Mac lager (om noen åpner prosjektet på en Mac)
+.DS_Store
