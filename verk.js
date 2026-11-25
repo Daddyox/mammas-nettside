@@ -1,9 +1,9 @@
 // =========================================================
 //  ALLE VERKENE TIL OLOEY
 //
-//  Ett maleri per linje. Rekkefølgen her = rekkefølgen på siden.
-//  Galleriet regner selv ut hvor mange som får plass på hver rad,
-//  ut fra hvor brede maleriene er i virkeligheten.
+//  Ett maleri per linje. Rekkefølgen her = rekkefølgen på siden
+//  (lest fra venstre mot høyre, øverst først).
+//  Målene brukes til å vise hvert maleri i sin riktige form.
 //
 //    fil      filnavnet i mappen "bilder", f.eks. "maleri-01.jpg"
 //             ("" = vis en plassholder til bildet er klart)
@@ -12,8 +12,9 @@
 //    aar      årstall
 //    teknikk  f.eks. "Olje på lerret"
 //
-//  Tips: Vil du at små malerier skal henge sammen på samme rad,
-//  legg dem etter hverandre i listen.
+//  Valgfritt (kan legges til på hvert maleri):
+//    pris: 12000     →  viser "kr 12 000" under maleriet
+//    solgt: true     →  viser "Solgt" i stedet for pris
 // =========================================================
 
 // Hvordan titlene skal vises (maleriene har bevisst ingen navn):

@@ -18,81 +18,50 @@
   <!-- ===== TOPPMENY ===== -->
   <header class="toppmeny">
     <a href="#" class="logo">Oloey</a>
-    <nav>
-      <a href="#utstillingen">Utstillingen</a>
-      <a href="#kunstneren">Kunstneren</a>
+    <nav aria-label="Hovedmeny">
+      <a href="#kunstneren">Om Oloey</a>
+      <a href="#verk">Verk</a>
       <a href="#uttalelse">Uttalelse</a>
-      <a href="#henvendelser">Henvendelser</a>
+      <a href="#kontakt">Kontakt</a>
     </nav>
   </header>
 
   <main>
 
-    <!-- ===== INNGANGEN – det første man ser, som døren inn til galleriet ===== -->
-    <section class="inngang">
-      <p class="overtittel vis-ved-rulling">Maleri</p>
-      <h1 class="vis-ved-rulling">
-        <span>Oloey</span>
-      </h1>
-      <div class="strek vis-ved-rulling"></div>
-      <p class="inngang-undertekst vis-ved-rulling">Non-figurativ abstraksjon</p>
-      <a href="#utstillingen" class="ga-inn">
-        Gå inn i galleriet
-        <span class="pil" aria-hidden="true"></span>
-      </a>
-    </section>
-
-    <!-- ===== UTSTILLINGEN ===== -->
-    <section id="utstillingen" class="utstilling">
-
-      <header class="rom-intro vis-ved-rulling">
-        <p class="overtittel">Utstillingen</p>
-        <h2>Verk</h2>
-        <p class="ingress">
-          Malerier der farge, form og bevegelse får tale fritt –
-          uten motiv, uten fortelling, bare følelse.
-        </p>
-        <p class="galleri-hint">
-          Verkene vises i riktig størrelse i forhold til hverandre.
-          Klikk på et maleri for å se det nærmere.
-        </p>
-      </header>
-
-      <!--
-        GALLERIET BYGGES AUTOMATISK fra listen i verk.js.
-        Der legger du inn filnavn, mål, år og teknikk for hvert maleri.
-      -->
-      <div class="galleri" aria-label="Alle verk"></div>
-      <noscript>
-        <p class="galleri-hint">Galleriet trenger JavaScript for å vises.</p>
-      </noscript>
-
-    </section>
-
-    <!-- ===== KUNSTNEREN ===== -->
-    <section id="kunstneren" class="kunstneren">
-      <div class="portrett vis-ved-rulling">
-        <!-- BYTT UT: <img src="bilder/portrett.jpg" alt="Portrett av Linda Oloey Johannessen"> -->
+    <!-- ===== KUNSTNEREN – portrett og bakgrunn øverst ===== -->
+    <section id="kunstneren" class="intro">
+      <div class="portrett">
+        <!--
+          BYTT UT: legg portrettet i mappen "bilder" og erstatt <p>-linjen under med
+          <img src="bilder/portrett.jpg" alt="Linda Oloey Johannessen">
+        -->
+        <p class="portrett-plass">Her kommer et portrett av Linda</p>
       </div>
-      <div class="kunstneren-tekst vis-ved-rulling">
-        <p class="overtittel">Kunstneren</p>
-        <h2>Et liv i farge og følelse</h2>
-        <p>
-          Linda Oloey Johannessen, som maler under navnet Oloey, er en anerkjent norsk kunstner med dyp akademisk
-          forankring i kunstfaget. Hun har doktorgrad fra kunstakademiet i
-          Firenze, og begynte tidlig å arbeide som kunstner.
-        </p>
-        <p>
-          Hennes malerier er non-figurative og abstrakte. I stedet for å
-          gjengi personer, landskap eller kjente former, lar hun følelsene
-          styre penselen. Bildene forteller ikke betrakteren hva den skal se –
-          de inviterer den til å kjenne.
-        </p>
-        <p>
-          Denne tilnærmingen går som en rød tråd gjennom hele hennes kunstnerskap.
-        </p>
 
-        <!-- BYTT UT / FYLL INN: ekte årstall, navn på utdanning og utstillinger -->
+      <div class="intro-tekst">
+        <h1>Oloey</h1>
+        <p class="fullt-navn">Linda Oloey Johannessen</p>
+        <!-- BYTT UT: hvor hun bor og arbeider, f.eks. "Bergen, Norge" -->
+        <p class="bosted">Norge</p>
+
+        <div class="bio">
+          <p>
+            Linda Oloey Johannessen, som maler under navnet Oloey, er en norsk
+            kunstner med doktorgrad fra kunstakademiet i Firenze.
+          </p>
+          <p>
+            Maleriene hennes er non-figurative og abstrakte. I stedet for å
+            gjengi personer, landskap eller kjente former, lar hun følelsene
+            styre penselen. Bildene forteller ikke betrakteren hva den skal se –
+            de inviterer den til å kjenne.
+          </p>
+          <p>
+            Verkene har bevisst ingen titler, slik at ingen ord kommer mellom
+            maleriet og den som ser på det.
+          </p>
+        </div>
+
+        <!-- BYTT UT / FYLL INN: ekte årstall, skolens fulle navn og utstillinger -->
         <dl class="cv">
           <div>
             <dt>Utdanning</dt>
@@ -110,30 +79,47 @@
       </div>
     </section>
 
-    <!-- ===== KUNSTNERISK UTTALELSE – et mørkt rom med ett lys ===== -->
+    <!-- ===== VERKENE ===== -->
+    <section id="verk" class="verk-seksjon">
+      <header class="verk-topp">
+        <h2>Utvalgte verk</h2>
+        <p class="verk-antall"></p>
+      </header>
+
+      <!--
+        GALLERIET BYGGES AUTOMATISK fra listen i verk.js.
+        Der legger du inn filnavn, mål, år og teknikk for hvert maleri.
+      -->
+      <div class="galleri" aria-label="Alle verk"></div>
+      <noscript>
+        <p>Galleriet trenger JavaScript for å vises.</p>
+      </noscript>
+    </section>
+
+    <!-- ===== KUNSTNERISK UTTALELSE – et mørkt, brunt rom ===== -->
     <section id="uttalelse" class="uttalelse">
-      <p class="overtittel vis-ved-rulling">Kunstnerisk uttalelse</p>
+      <h2>Kunstnerisk uttalelse</h2>
       <!-- BYTT UT: helst med mammas egne ord -->
-      <blockquote class="vis-ved-rulling">
+      <blockquote>
         <p>
           Jeg maler ikke det jeg ser, men det jeg kjenner. Foran lerretet
           slipper jeg taket i det gjenkjennelige og lar fargene, strøkene
           og rytmen finne sin egen vei.
         </p>
       </blockquote>
-      <div class="strek vis-ved-rulling"></div>
     </section>
 
-    <!-- ===== HENVENDELSER ===== -->
-    <section id="henvendelser" class="henvendelser">
-      <p class="overtittel vis-ved-rulling">Henvendelser</p>
-      <h2 class="vis-ved-rulling">Salg, utstillinger og samarbeid</h2>
-      <p class="vis-ved-rulling">
-        Verk kan sees etter avtale. For forespørsler om tilgjengelige verk,
-        utlån eller oppdrag, ta kontakt.
-      </p>
-      <!-- BYTT UT: ekte e-postadresse -->
-      <a href="mailto:post@eksempel.no" class="lenke-strek vis-ved-rulling">post@eksempel.no</a>
+    <!-- ===== KONTAKT ===== -->
+    <section id="kontakt" class="kontakt">
+      <h2>Salg, utstillinger og samarbeid</h2>
+      <div>
+        <p>
+          Verkene kan sees etter avtale. Send en e-post om du vil vite mer om
+          et verk, låne verk til en utstilling eller bestille et oppdrag.
+        </p>
+        <!-- BYTT UT: ekte e-postadresse -->
+        <a href="mailto:post@eksempel.no" class="epost">post@eksempel.no</a>
+      </div>
     </section>
 
   </main>
@@ -149,11 +135,10 @@
     <button type="button" class="visning-pil visning-forrige" aria-label="Forrige maleri">‹</button>
     <figure class="visning-innhold">
       <div class="visning-bilde"></div>
-      <figcaption class="vegglapp">
-        <span class="nummer"></span>
-        <p class="lapp-kunstner">Oloey</p>
-        <p class="lapp-tittel"></p>
-        <p class="lapp-detaljer"></p>
+      <figcaption class="visning-skilt">
+        <p class="visning-nummer"></p>
+        <p class="visning-tittel"></p>
+        <p class="visning-detaljer"></p>
       </figcaption>
     </figure>
     <button type="button" class="visning-pil visning-neste" aria-label="Neste maleri">›</button>
