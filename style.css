@@ -232,49 +232,50 @@ a {
   line-height: 1.6;
 }
 
-/* Hver vegg fyller nesten hele skjermen – ett verk om gangen */
-.vegg {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 220px;
-  align-items: center;
-  gap: 6rem;
-  max-width: 1200px;
+.galleri-hint {
+  margin-top: 1.5rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gra);
+  line-height: 2;
+}
+
+/* Galleriveggen – radene bygges av script.js ut fra maleriets mål */
+.galleri {
+  width: min(1240px, 100% - 6rem);
   margin: 0 auto;
-  padding: 6rem 3rem;
+  padding-bottom: 8rem;
+}
+
+.galleri-rad {
+  display: flex;
+  justify-content: center;
+  align-items: center;   /* malerier henges etter en felles midtlinje, som i et museum */
+  margin-bottom: clamp(3rem, 6vw, 5.5rem);
+}
+
+.galleri-verk {
   position: relative;
+  flex: none;
 }
 
-/* Spotlyset over hvert maleri */
-.vegg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(ellipse 45% 55% at 40% 45%, rgba(255, 255, 255, 0.85), transparent 70%);
-  pointer-events: none;
+.galleri-knapp {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
 }
 
-.vegg--speilet {
-  grid-template-columns: 220px 1fr;
-}
-
-.vegg--speilet::before {
-  background: radial-gradient(ellipse 45% 55% at 60% 45%, rgba(255, 255, 255, 0.85), transparent 70%);
-}
-
-.vegg--speilet .verk {
-  order: 2;
+.galleri-knapp:focus-visible {
+  outline: 1px solid var(--messing);
+  outline-offset: 8px;
 }
 
 /* Maleriet – henger på veggen med en myk, realistisk skygge */
-.verk {
-  justify-self: center;
-  width: 100%;
-  max-width: min(560px, 70vh * var(--forhold));
-  aspect-ratio: var(--forhold);
-}
-
 .lerret {
   display: block;
   width: 100%;
@@ -282,8 +283,135 @@ a {
   object-fit: cover;
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.08),
-    6px 8px 12px -4px rgba(0, 0, 0, 0.12),
-    18px 40px 60px -20px rgba(0, 0, 0, 0.35);
+    4px 6px 10px -4px rgba(0, 0, 0, 0.12),
+    12px 26px 40px -18px rgba(0, 0, 0, 0.32);
+}
+
+.galleri-knapp .lerret {
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.galleri-knapp:hover .lerret,
+.galleri-knapp:focus-visible .lerret {
+  transform: translateY(-4px);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    6px 10px 14px -4px rgba(0, 0, 0, 0.14),
+    18px 40px 60px -18px rgba(0, 0, 0, 0.38);
+}
+
+/* Liten tekst under maleriet som dukker opp når man holder musen over */
+.galleri-tekst {
+  position: absolute;
+  top: calc(100% + 0.9rem);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gra);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.galleri-verk:hover .galleri-tekst,
+.galleri-verk:focus-within .galleri-tekst {
+  opacity: 1;
+}
+
+/* =========================================
+   STORT FORMAT – ett maleri på en tom vegg
+   ========================================= */
+.visning {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  border: 0;
+  padding: 0;
+  color: var(--kull);
+  background:
+    radial-gradient(ellipse 50% 60% at 45% 45%, rgba(255, 255, 255, 0.9), transparent 70%),
+    var(--vegg);
+}
+
+.visning[open] {
+  display: grid;
+  grid-template-columns: 5rem 1fr 5rem;
+  align-items: center;
+  animation: tone-inn 0.5s ease;
+}
+
+.visning::backdrop {
+  background: var(--vegg);
+}
+
+@keyframes tone-inn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+body:has(.visning[open]) {
+  overflow: hidden; /* siden bak skal ikke rulle */
+}
+
+.visning-innhold {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 4rem 0;
+}
+
+.visning-bilde {
+  flex: none;
+  width: min(60vw, calc(78vh * var(--forhold)));
+  aspect-ratio: var(--forhold);
+}
+
+.visning .vegglapp {
+  flex: none;
+  width: 200px;
+}
+
+.visning-lukk,
+.visning-pil {
+  border: 0;
+  background: none;
+  font-family: var(--serif);
+  font-weight: 300;
+  color: var(--gra);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.visning-lukk:hover,
+.visning-pil:hover,
+.visning-lukk:focus-visible,
+.visning-pil:focus-visible {
+  color: var(--messing);
+}
+
+.visning-lukk:focus-visible,
+.visning-pil:focus-visible {
+  outline: 1px solid var(--messing);
+  outline-offset: 4px;
+}
+
+.visning-lukk {
+  position: absolute;
+  top: 1.25rem;
+  right: 2rem;
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.visning-pil {
+  font-size: 3.5rem;
+  height: 100%;
 }
 
 /* Museumsskiltet ved siden av maleriet */
@@ -294,18 +422,10 @@ a {
   padding-left: 1.5rem;
 }
 
-.vegg--speilet .vegglapp {
-  text-align: right;
-  border-left: none;
-  border-right: 1px solid var(--linje);
-  padding-left: 0;
-  padding-right: 1.5rem;
-}
-
 .nummer {
   display: block;
   font-family: var(--serif);
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: var(--messing);
   margin-bottom: 1rem;
 }
@@ -322,40 +442,6 @@ a {
 
 .lapp-detaljer {
   color: var(--gra);
-}
-
-/* Abstrakte plassholdere – fjernes når ekte bilder legges inn */
-.abstrakt-1 {
-  background:
-    radial-gradient(circle at 25% 35%, var(--karmin) 0 18%, transparent 40%),
-    radial-gradient(circle at 70% 70%, var(--oker) 0 12%, transparent 45%),
-    linear-gradient(160deg, var(--vegg-skygge), var(--rosa));
-}
-.abstrakt-2 {
-  background:
-    linear-gradient(115deg, transparent 40%, var(--oker) 40% 46%, transparent 46%),
-    radial-gradient(ellipse at 40% 60%, var(--kobolt), var(--natt));
-}
-.abstrakt-3 {
-  background:
-    radial-gradient(ellipse 60% 30% at 50% 30%, var(--oliven) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 50% at 30% 75%, var(--karmin) 0%, transparent 70%),
-    var(--vegg-skygge);
-}
-.abstrakt-4 {
-  background:
-    linear-gradient(200deg, var(--natt) 0 35%, transparent 35%),
-    radial-gradient(circle at 60% 65%, var(--rosa) 0 25%, var(--karmin) 26% 30%, transparent 31%),
-    var(--oker);
-}
-.abstrakt-5 {
-  background:
-    conic-gradient(from 210deg at 45% 55%, var(--kobolt), var(--rosa), var(--oker), var(--kobolt));
-}
-.abstrakt-6 {
-  background:
-    radial-gradient(ellipse 30% 45% at 70% 40%, var(--vegg) 0%, transparent 70%),
-    linear-gradient(180deg, var(--oliven), var(--natt));
 }
 
 /* =========================================
@@ -504,16 +590,13 @@ footer {
   transform: none;
 }
 
-/* Skiltet kommer litt etter maleriet, som når blikket flytter seg */
-.js .vegglapp.vis-ved-rulling {
-  transition-delay: 0.4s;
-}
-
 /* Respekter de som har slått av animasjoner på maskinen sin */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .js .vis-ved-rulling { opacity: 1; transform: none; transition: none; }
   .pil { animation: none; }
+  .visning[open] { animation: none; }
+  .galleri-knapp .lerret { transition: none; }
 }
 
 /* =========================================
@@ -529,28 +612,39 @@ footer {
     display: none; /* holder toppen ren på små skjermer */
   }
 
-  .vegg,
-  .vegg--speilet {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    min-height: auto;
-    padding: 5rem 1.5rem;
+  .galleri {
+    width: calc(100% - 2.5rem);
+    padding-bottom: 5rem;
   }
 
-  .vegg--speilet .verk {
-    order: 0;
+  .galleri-tekst {
+    display: none; /* for trangt under små malerier på mobil */
   }
 
-  .vegg--speilet .vegglapp {
-    text-align: left;
-    border-right: none;
-    border-left: 1px solid var(--linje);
-    padding-right: 0;
-    padding-left: 1.5rem;
+  .visning[open] {
+    grid-template-columns: 2.75rem 1fr 2.75rem;
   }
 
-  .verk {
-    max-width: 100%;
+  .visning-innhold {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .visning-bilde {
+    width: min(100%, calc(58vh * var(--forhold)));
+  }
+
+  .visning .vegglapp {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .visning-pil {
+    font-size: 2.5rem;
+  }
+
+  .visning-lukk {
+    right: 1rem;
   }
 
   .kunstneren {
